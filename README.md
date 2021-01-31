@@ -1,6 +1,6 @@
-# Boiler Plate
+# Movie App
 
-User Authentication boiler plate
+TMDB API Movie Review app
 
 use and learn MERN stack
 
@@ -10,11 +10,9 @@ To use this application,
 2. put mongoDB info into dev.js file
 3. Type " npm install " inside the root directory ( Download Server Dependencies )
 4. Type " npm install " inside the client directory ( Download Front-end Dependencies )
-5. Make folder 'uploads' inside the root directory
-6. Make folder 'userImg' inside the uploads directory
 
 You can watch the tutorial for this app.
 
-https://www.youtube.com/channel/UCFyXA9x8lpL3EYWeYhj4C4Q?view_as=subscriber
+https://www.youtube.com/watch?v=PNw87PkTzbs&list=PL9a7QRYt5fqkso-mBs_4AlGkokU7f5_N8
 
 by John Ahn (https://github.com/jaewonhimnae)
