@@ -51,17 +51,20 @@ function NavBar({history}) {
     
 
     return (
-        <Layout>
+        <Layout >
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item style={{float: 'left'}} key="1"><Link to='/' style={{display:'flex',alignItems:'center'}} >LOGO</Link></Menu.Item>
         {isAuth?
+        <>
+         <Menu.Item style={{float: 'left'}} key="2"><Link to='/favorite' >FAVORITE</Link></Menu.Item>
             <Dropdown  overlay={menu} trigger={['click']}>
-                <a style={{float: 'right',marginLeft:'30px'}} className="ant-dropdown-link" onClick={e => e.preventDefault()} >
-                    <img src={userImage} alt='profile'  style={{borderRadius:'50%',width:'2.5rem'}} />
-                </a>
+                <div style={{float: 'right',marginLeft:'30px'}} className="ant-dropdown-link" onClick={e => e.preventDefault()} >
+                    <img src={userImage} alt='profile'  style={{borderRadius:'50%',width:'2.5rem',cursor:'pointer'}} />
+                </div>
             </Dropdown>
+            </>
                 :
                 <>
                 <Menu.Item key="4" style={{float: 'right'}}>
