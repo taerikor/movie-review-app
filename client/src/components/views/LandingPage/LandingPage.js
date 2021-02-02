@@ -3,35 +3,27 @@ import React, { useEffect, useState } from 'react'
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../Config'
 import GridCards from '../Commons/GridCards'
 import MainImage from './Sections/MainImage'
-import { Row } from 'antd';
+import { Row , Button} from 'antd';
+import axios from 'axios';
 
 
 function LandingPage() {
     const [movies,setMovies] = useState([])
     const [mainImage,setMainImage] = useState('')
-    const [currentPage,setCurrentPage] = useState(0)
-
-    const fetchData = (endpoint) => {
-        fetch(endpoint)
-        .then(res => res.json())
-        .then(res => {
-            setMovies([...movies,...res.results])
-            setMainImage(res.results[0])
-            setCurrentPage(res.page + 1)
-        })
-    }
+    const [currentPage,setCurrentPage] = useState(1)
 
     useEffect(()=>{
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-
-        fetchData(endpoint)
-    },[])
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${currentPage}`
+        axios.get(endpoint)
+        .then(res => {
+            setMovies([...movies,...res.data.results])
+            setMainImage(res.data.results[0])
+        })
+    },[currentPage])
 
 
     const onLoadMoreClick = () => {
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${currentPage}`
-
-        fetchData(endpoint)
+        setCurrentPage(currentPage + 1)
     }
 
     return (
@@ -60,7 +52,7 @@ function LandingPage() {
 
             </div>
             <div style={{ display:'flex', justifyContent: 'center'}} >
-                <button onClick={onLoadMoreClick}> Load More </button>
+                <Button onClick={onLoadMoreClick}> Load More </Button>
             </div>
         </div>
     )

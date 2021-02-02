@@ -30,19 +30,16 @@ function MovieDetailPage({match}) {
     useEffect(()=> {
         let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}`
         
-        fetch(endpointForMovieInfo)
-        .then(res => res.json())
+        axios.get(endpointForMovieInfo)
         .then(res => {
-            setMovie(res)
+            setMovie(res.data)
         })
         
         let endpointForCast = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`
 
-        fetch(endpointForCast)
-        .then(res => res.json())
+        axios.get(endpointForCast)
         .then(res => {
-            console.log(res)
-            setCasts(res.cast)
+            setCasts(res.data.cast)
         })
 
         axios.post('/api/comment/getComments',{movieId})

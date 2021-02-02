@@ -16,3 +16,5 @@ You can watch the tutorial for this app.
 https://www.youtube.com/watch?v=PNw87PkTzbs&list=PL9a7QRYt5fqkso-mBs_4AlGkokU7f5_N8
 
 by John Ahn (https://github.com/jaewonhimnae)
+
+thank you for visiting!
