@@ -50,7 +50,7 @@ function MovieDetailPage({match}) {
                 alert('failed get comments')
             }
         })
-
+        
     },[])
 
     const onToggleCastClick = () => {
@@ -91,6 +91,7 @@ function MovieDetailPage({match}) {
                     <GridCards key={index}
                     castImage={cast.profile_path?`${IMAGE_BASE_URL}w500${cast.profile_path}`:null}
                     castName={cast.name}
+                    castId={cast.id}
                     />
                 ))}
                 </Row>}

@@ -9,6 +9,7 @@ import ProfileEditPage from './views/ProfileEditPage/ProfileEditPage';
 import MovieDetailPage from './views/MovieDetailPage/MovieDetailPage';
 import FavoritePage from './views/FavoritePage/FavoritePage';
 import Footer from './views/Footer/Footer';
+import ActorDetailPage from './views/ActorDetailPage/ActorDetailPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/register' component={Auth(RegisterPage, false)} />
         <Route exact path='/profile/edit' component={Auth(ProfileEditPage, true)} />
         <Route exact path='/movie/:movieId' component={Auth(MovieDetailPage, null)} />
+        <Route exact path='/actor/:castId' component={Auth(ActorDetailPage, null)} />
         <Route exact path='/favorite' component={Auth(FavoritePage, true)} />
       </Switch>
       </div>
